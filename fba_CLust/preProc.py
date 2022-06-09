@@ -7,6 +7,8 @@ from sklearn.preprocessing import StandardScaler
 
 import numpy as np
 
+import questions as q
+
 
 
 ### Get the paths ###
@@ -83,12 +85,15 @@ def getNormM(paths):
     nP = []
     for i in range(len(patients)):
         nP.append("p{0}".format(i + 1))
-
+        
     # get all the normalized matrices in one using stack and a generator function
     norms = np.stack((patients[nP[i]] for i in range(len(patients))))
-    
-    #save the tensor as .npy file
-    np.save('normMeanPats.npy', norms)
+
+    #ask if you want to save the preprocessed data as a .npy file
+    bool = q.npySave()
+    if bool:
+        # save the tensor as .npy file if asked
+        np.save('normMeanPats.npy', norms)
 
     return norms
 
