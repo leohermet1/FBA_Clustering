@@ -151,8 +151,10 @@ def getNormM(paths):
     #ask if you want to save the preprocessed data as a .npy file
     bool = q.npySave()
     if bool:
+        # get the path where .npy file will be saved 
+        newNPYfileP = q.npySavePath()
         # save the tensor as .npy file if asked
-        np.save('normMeanPats.npy', norms)
+        np.save(newNPYfileP, norms)
 
     return norms
 
