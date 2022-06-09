@@ -1,11 +1,11 @@
 def npyQuestion():
     i = 0
     while i < 2:
-        npy = input("Do you have a .npy matrix? (yes or no)")
-        if any(npy.lower() == f for f in ["yes", 'y', '1', 'ye']):
+        npyH = input("Do you have a .npy matrix? (yes or no)")
+        if any(npyH.lower() == f for f in ["yes", 'y', '1', 'ye']):
             return(True)
             break
-        elif any(npy.lower() == f for f in ['no', 'n', '0']):
+        elif any(npyH.lower() == f for f in ['no', 'n', '0']):
             return(False)
             break
         else:
@@ -42,15 +42,46 @@ def matPath():
                 print('Please enter a path directory')
             else:
                 print("Nothing done")
-                
+
+def SVDquestion():
+    i = 0
+    while i < 2:
+        svd = input("Do you want to reduce the solutions dimensions with SVD? (yes or no)")
+        if any(svd.lower() == f for f in ["yes", 'y', '1', 'ye']):
+            return(True)
+            break
+        elif any(svd.lower() == f for f in ['no', 'n', '0']):
+            return(False)
+            break
+        else:
+            i += 1
+            if i < 2:
+                print('Please enter yes or no')
+            else:
+                print("Nothing done")
+
+def nbComp():
+    i = 0
+    while i < 2:
+        nComp = int(input("Number of component for the SVD:"))
+        if len(nComp)>0:
+            return (nComp)
+            break
+        else:
+            i += 1
+            if i < 2:
+                print('Please enter an number of component')
+            else:
+                print("Nothing done")
+
 def npySave():
     i = 0
     while i < 2:
-        npy = input("Do you want to save the pre-processed data as a .npy file? (yes or no)")
-        if any(npy.lower() == f for f in ["yes", 'y', '1', 'ye']):
+        npyW = input("Do you want to save the pre-processed data as a .npy file? (yes or no)")
+        if any(npyW.lower() == f for f in ["yes", 'y', '1', 'ye']):
             return(True)
             break
-        elif any(npy.lower() == f for f in ['no', 'n', '0']):
+        elif any(npyW.lower() == f for f in ['no', 'n', '0']):
             return(False)
             break
         else:
