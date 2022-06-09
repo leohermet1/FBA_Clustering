@@ -91,15 +91,16 @@ def getSVD(paths,nb_components):
         #adding patient ID as key and svd as item for the dictionary
         patients["p{0}".format(pID)] = p_svd
 
-    print(nP)
     # get all the normalized matrices in one using stack and a generator function
     norms = np.stack((patients[nP[i]] for i in range(len(patients))))
 
-    # ask if you want to save the preprocessed data as a .npy file
+    #ask if you want to save the preprocessed data as a .npy file
     bool = q.npySave()
     if bool:
+        # get the path where .npy file will be saved
+        newNPYfileP = q.npySavePath()
         # save the tensor as .npy file if asked
-        np.save('normMeanPats.npy', norms)
+        np.save(newNPYfileP, norms)
 
     return norms
 
@@ -132,16 +133,12 @@ def getNormM(paths):
         #if pm[-11:-9].find('_') == -1
         else:
             pID = pm[-11:-9]
+        nP.append("p{0}".format(pID))
         print('Patient',pID)
         #get the normalized matrix
         pz = norm(p)
             #adding patient ID as key and svd as item for the dictionary
         patients["p{0}".format(pID)] = pz
-
-    # create a list of all the patients id correctly sorted from p1 to p95
-    nP = []
-    for i in range(len(patients)):
-        nP.append("p{0}".format(i + 1))
         
     # get all the normalized matrices in one using stack and a generator function
     norms = np.stack((patients[nP[i]] for i in range(len(patients))))

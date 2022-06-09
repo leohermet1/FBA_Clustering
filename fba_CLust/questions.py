@@ -32,7 +32,10 @@ def npyPath():
 def matPath():
     i = 0
     while i < 5:
-        matP = input("Path of the directory with all the .mat files:")
+        matP = input("Path of the directory with all the .mat files:\n"
+                     "Warning: the name of each file has to contain the id of the patient as an integer at the 22th character of the name "
+                     "and end with \".mat\".\n"
+                     "Example: \"modelPatient_Sampled_10_Mean.mat\"")
         if len(matP)>0:
             return(matP)
             break
