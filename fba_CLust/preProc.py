@@ -73,6 +73,7 @@ def normSVD(matrix, nb_components):
 def getSVD(paths,nb_components):
     #create the dictionary for the svd matrices of each patients
     patients = {}
+    nP = []
     #browse every paths gived in arguments
     for pm in paths:
         #get the solution matrice of the patient
@@ -83,16 +84,13 @@ def getSVD(paths,nb_components):
         #if pm[-11:-9].find('_') == -1
         else:
             pID = pm[-11:-9]
+        nP.append(pID)
         print('Patient',pID,':')
         #get the svd matrix
         p_svd = normSVD(p,nb_components)
         #adding patient ID as key and svd as item for the dictionary
         patients["p{0}".format(pID)] = p_svd
 
-    # create a list of all the patients id correctly sorted from p1 to p95
-    nP = []
-    for i in range(len(patients)):
-        nP.append("p{0}".format(i + 1))
     print(nP)
     # get all the normalized matrices in one using stack and a generator function
     norms = np.stack((patients[nP[i]] for i in range(len(patients))))
