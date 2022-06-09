@@ -84,7 +84,7 @@ def getSVD(paths,nb_components):
         #if pm[-11:-9].find('_') == -1
         else:
             pID = pm[-11:-9]
-        nP.append(pID)
+        nP.append("p{0}".format(pID))
         print('Patient',pID,':')
         #get the svd matrix
         p_svd = normSVD(p,nb_components)
