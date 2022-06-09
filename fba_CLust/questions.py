@@ -64,7 +64,7 @@ def nbComp():
     i = 0
     while i < 2:
         nComp = int(input("Number of component for the SVD:"))
-        if len(nComp)>0:
+        if nComp>0:
             return (nComp)
             break
         else:
