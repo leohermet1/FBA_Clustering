@@ -21,7 +21,7 @@ def npyQuestion():
 def npyPath():
     i = 0
     while i < 5:
-        npyP = input("Path of the .npy file:")
+        npyP = input("Path of the .npy file:\n")
         if len(npyP)>0:
             return(npyP)
             break
@@ -37,10 +37,10 @@ def matPath():
     while i < 5:
         matP = input("Path of the directory with all the .mat files:\n")
         if len(matP)>0:
-            warnings.warn("The name of each file has to contain the id of the patient as an integer at the 22th character of the name "
-                     "and end with \".mat\".\n"
-                     "(Example: \"modelPatient_Sampled_10_Mean.mat\")",
-                          Warning)
+            print("\nWarning: The name of each file in the directory has to contain the id of the patient as an integer at the 22th character of the name "
+            "and end with \".mat\".\n"
+            "(Example: \"modelPatient_Sampled_10_Mean.mat\")\n")
+            cont = input("Read the warning above and press enter to continue")
             return(matP)
             break
         else:
@@ -102,7 +102,7 @@ def npySave():
 def npySavePath():
     i = 0
     while i < 5:
-        npySP = input("Give the path and name of the new saved .npy file")
+        npySP = input("Give the path and name of the new saved .npy file\n")
         if npySP.endswith('.npy')>0:
             return(npySP)
             break
