@@ -1,3 +1,6 @@
+import warnings
+
+
 def npyQuestion():
     i = 0
     while i < 5:
@@ -32,11 +35,12 @@ def npyPath():
 def matPath():
     i = 0
     while i < 5:
-        matP = input("Path of the directory with all the .mat files:\n"
-                     "Warning: the name of each file has to contain the id of the patient as an integer at the 22th character of the name "
-                     "and end with \".mat\".\n"
-                     "(Example: \"modelPatient_Sampled_10_Mean.mat\")")
+        matP = input("Path of the directory with all the .mat files:\n")
         if len(matP)>0:
+            warnings.warn("The name of each file has to contain the id of the patient as an integer at the 22th character of the name "
+                     "and end with \".mat\".\n"
+                     "(Example: \"modelPatient_Sampled_10_Mean.mat\")",
+                          Warning)
             return(matP)
             break
         else:
