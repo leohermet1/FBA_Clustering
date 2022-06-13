@@ -37,10 +37,7 @@ def matPath():
     while i < 5:
         matP = input("Path of the directory with all the .mat files:\n")
         if len(matP)>0:
-            print("\nWarning: The name of each file in the directory has to contain the id of the patient as an integer at the 22th character of the name "
-            "and end with \".mat\".\n"
-            "(Example: \"modelPatient_Sampled_10_Mean.mat\")\n")
-            cont = input("Read the warning above and press enter to continue")
+            cont = input("Warning: The patient ID has to be the first integer in the name of every .mat file (press enter to continue)")
             return(matP)
             break
         else:

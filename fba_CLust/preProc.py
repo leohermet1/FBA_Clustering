@@ -8,6 +8,8 @@ from sklearn.decomposition import TruncatedSVD
 
 import numpy as np
 
+import re
+
 import questions as q
 
 
@@ -79,11 +81,7 @@ def getSVD(paths,nb_components):
         #get the solution matrice of the patient
         p = getSol(pm)
         #get the ID
-        if pm[-11:-9].find('_') == 0:       #if there is a '_' in pm[-11:-9] so if the patient number <10
-            pID = pm[-10:-9]
-        #if pm[-11:-9].find('_') == -1
-        else:
-            pID = pm[-11:-9]
+        pID = int(re.search(r'\d+', pm).group())
         nP.append("p{0}".format(pID))
         print('Patient',pID,':')
         #get the svd matrix
@@ -92,7 +90,7 @@ def getSVD(paths,nb_components):
         patients["p{0}".format(pID)] = p_svd
 
     # get all the normalized matrices in one using stack and a generator function
-    norms = np.stack((patients[nP[i]] for i in range(len(patients))))
+    norms = np.stack([patients[nP[i]] for i in range(len(patients))])
 
     #ask if you want to save the preprocessed data as a .npy file
     bool = q.npySave()
