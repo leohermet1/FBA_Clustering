@@ -7,8 +7,8 @@ import tensorDec as td
 boolNPY = q.npyQuestion()
 
 if boolNPY:
-    Nm = q.npyPath()
-    l.getNm(Nm)
+    numpyPath = q.npyPath()
+    Nm = l.getNm(numpyPath)
 
 else:
     matDir = q.matPath()
