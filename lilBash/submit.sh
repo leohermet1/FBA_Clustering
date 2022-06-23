@@ -28,4 +28,4 @@
 #BSUB -e Error_%J.err 
 
 # here follow the commands you want to execute 
-main.py < input.in > output.out
+python main.py < input.in > output.out
