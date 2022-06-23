@@ -3,7 +3,10 @@
 from tensorly.decomposition import CP
 from tensorly.decomposition import parafac2
 import tensorly as tl
+
 import time
+
+import matplotlib.pyplot as plt
 
 ### tensor decomposition ###
 
@@ -43,4 +46,21 @@ def rec_error_cpANDparafac2(tensor, lComp):
 
         print('decomposition for', c, 'components done.')
 
-    return rec_error_cp, cp_time, rec_error_par2, par2_time
+    perc = 100
+    perc_rec_error_cp = [x * perc for x in rec_error_cp]
+    perc_rec_error_par2 = [x * perc for x in rec_error_par2]
+
+    # Plot a simple line chart
+    plt.plot(lComp, perc_rec_error_cp, label="CP reconstruction error")
+
+    # Plot another line on the same chart/graph
+    plt.plot(lComp, perc_rec_error_par2, label="Parafac2 reconstruction error")
+
+    plt.ylabel('% of reconstruction error')
+    plt.xlabel('number of components')
+    plt.title('Reconstruction error')
+    plt.legend()
+    plt.show()
+
+
+

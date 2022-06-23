@@ -31,7 +31,7 @@ else:
         Nm = pp.getNormM(pathsM)
         print(Nm.shape)
 
-lComp = [1]
+lComp = [1,2]
 rec_error_cp, cp_time, rec_error_par2, par2_time = td.rec_error_cpANDparafac2(Nm,lComp)
 print(rec_error_cp)
 
