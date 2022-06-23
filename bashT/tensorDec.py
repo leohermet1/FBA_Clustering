@@ -6,8 +6,6 @@ import tensorly as tl
 
 import time
 
-import matplotlib.pyplot as plt
-
 ### tensor decomposition ###
 
 def compute_reconstruction_err(tensor, reconstruction):
