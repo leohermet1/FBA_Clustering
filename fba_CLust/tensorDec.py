@@ -62,5 +62,7 @@ def rec_error_cpANDparafac2(tensor, lComp):
     plt.legend()
     plt.show()
 
+    return rec_error_cp, cp_time, rec_error_par2, par2_time
+
 
 
