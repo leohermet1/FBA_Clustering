@@ -1,38 +1,29 @@
-import questions as q
+import argparse, os
 import preProc as pp
-import loadNorm as l
-import tensorDec as td
+#import loadNorm as l
+#import tensorDec as td
 
 
-boolNPY = q.npyQuestion()
+parser = argparse.ArgumentParser()
+parser.add_argument('path', help= 'Paste path of directory with .mat files')
+parser.add_argument('-tens', help= 'Paste path of .npy file of the pre-processed data')
+args = parser.parse_args()
 
-if boolNPY:
-    numpyPath = q.npyPath()
-    Nm = l.getNm(numpyPath)
 
-else:
-    matDir = q.matPath()
+os.chdir(args.path) # to change directory to argument passed for 'path'
 
-    # get the paths of all the .mat files
-    paths = pp.getPaths(matDir)
+# get the paths of all the .mat files
+matDir = os.getcwd()
+paths = pp.getPaths(matDir)
 
-    # get only the paths of the .mat files with
-    # the solution matrices computed from phenotypes
-    # with boudaries compared to the mean of the healthy patients
-    pathsM = pp.getMeanP(paths)
+#Compute scaling and SVD for every patients
+nb_components = 100
+norms, varExp_MEAN = pp.getNormSVD(paths,nb_components)
+print(norms.shape)
+print(varExp_MEAN)
 
-    boolSVD = q.SVDquestion()
-    if boolSVD:
-        nb_components = q.nbComp()
-        Nm = pp.getSVD(pathsM,nb_components)
-        print(Nm.shape)
-    else:
-        # get the normalized matrices of each patients
-        Nm = pp.getNormM(pathsM)
-        print(Nm.shape)
-
-lComp = [1,2]
-rec_error_cp, cp_time, rec_error_par2, par2_time = td.rec_error_cpANDparafac2(Nm,lComp)
-print(rec_error_cp)
+#lComp = [1,2]
+#rec_error_cp, cp_time, rec_error_par2, par2_time = td.rec_error_cpANDparafac2(Nm,lComp)
+#print(rec_error_cp)
 
 
