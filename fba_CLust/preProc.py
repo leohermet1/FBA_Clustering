@@ -103,11 +103,11 @@ def getNormSVD(paths, nb_components):
             patients["p{0}".format(pID)] = p_svd
 
     # get all the normalized matrices in one using stack and a generator function
-    norms = np.stack([patients[nP[i]] for i in range(len(patients))])
+    tensor = np.stack([patients[nP[i]] for i in range(len(patients))])
     #compute the mean of the explained variance for all the patients
     varExp_MEAN = np.sum(varExp, axis=0) / len(nP)
 
-    return norms, varExp_MEAN
+    return tensor, varExp_MEAN
 
 
 ### tensor decomposition ###
@@ -149,3 +149,10 @@ def rec_error_cpANDparafac2(tensor, lComp):
     plt.show()
 
     return rec_error_par2, par2_time
+
+def tensorDecomposition(tensor, nb_components):
+    # parafac2 decomposition
+    par = parafac2(tensor, nb_components)
+    patVectors = par.factors[0]
+
+    return patVectors
