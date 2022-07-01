@@ -12,6 +12,13 @@ import re
 
 import numpy as np
 
+from tensorly.decomposition import parafac2
+import tensorly as tl
+
+import time
+
+import matplotlib.pyplot as plt
+
 
 
 
@@ -101,3 +108,44 @@ def getNormSVD(paths, nb_components):
     varExp_MEAN = np.sum(varExp, axis=0) / len(nP)
 
     return norms, varExp_MEAN
+
+
+### tensor decomposition ###
+
+def compute_reconstruction_err(tensor, reconstruction):
+    rec_error = tl.norm(tensor - reconstruction) / tl.norm(tensor)
+    return rec_error
+
+
+def rec_error_cpANDparafac2(tensor, lComp):
+    # init list of reconstruction error for each component
+    rec_error_par2 = []
+    par2_time = []
+
+    for c in lComp:
+
+        # parafac2 decomposition
+        start = time.time()
+
+        par = parafac2(tensor, c)
+        par2_reconstruction = par.to_tensor()
+        rec_error_par2.append(compute_reconstruction_err(tensor, par2_reconstruction))
+
+        end = time.time()
+        par2_time.append(round(end - start, 2))
+
+        print('decomposition for', c, 'components done.')
+
+    perc = 100
+    perc_rec_error_par2 = [x * perc for x in rec_error_par2]
+
+    # Plot another line on the same chart/graph
+    plt.plot(lComp, perc_rec_error_par2, label="Parafac2 reconstruction error")
+
+    plt.ylabel('% of reconstruction error')
+    plt.xlabel('number of components')
+    plt.title('Reconstruction error')
+    plt.legend()
+    plt.show()
+
+    return rec_error_par2, par2_time
