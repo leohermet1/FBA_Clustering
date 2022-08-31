@@ -20,7 +20,7 @@ git clone https://github.com/leohermet1/FBA_Clustering.git
 #### Run
 ```
 cd fba_CLust
-python3 main.py
+python3 yourFunction.py
 ```
 
 ## Author
