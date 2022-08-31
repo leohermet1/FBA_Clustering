@@ -23,5 +23,5 @@ cd fba_CLust
 python3 main.py
 ```
 
-## Authors
+## Author
 Hermet Léo
