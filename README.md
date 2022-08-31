@@ -1,7 +1,7 @@
 # FBA_Clustering
 
 ## Description
-This software compute and display the clusters that can be found between multiple patients matrices obtained by FBA (reaction-solution matrices).
+This package compute and display the clusters that can be found between multiple patients matrices obtained by FBA (reaction-solution matrices).
 
 ## Version
 1.0.0
