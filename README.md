@@ -17,6 +17,8 @@ git clone https://github.com/leohermet1/FBA_Clustering.git
 + `pip3 install sklearn`
 + `pip3 install tensorly`
 
++ `Statistics and Machine Learning Toolbox`
+
 #### Run
 ```
 cd fba_CLust
