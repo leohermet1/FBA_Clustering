@@ -44,8 +44,8 @@ preprocessing1_SVDandTensorDecomposition.py -help
 ```
 -mimema dir/
 ```
-##### _This option will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models)_
-##### _Add the path of the directory where you want to save the .svg files_
+ _This option will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models)_
+_Add the path of the directory where you want to save the .svg files_
 
 #### Compute only on the mean.mat files :
 ```
@@ -66,7 +66,7 @@ preprocessing1_SVDandTensorDecomposition.py -help
 ```
 -npy directoryOutput/
 ```
-##### _Add the path of the directory where you want to save the output of the tensor decomposition_
+_Add the path of the directory where you want to save the output of the tensor decomposition_
 
 
 Visualization :
