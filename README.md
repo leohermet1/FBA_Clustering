@@ -40,29 +40,29 @@ You have to enter the paths of the directory where all the mat files of the pati
 preprocessing1_SVDandTensorDecomposition.py -h
 preprocessing1_SVDandTensorDecomposition.py -help
 ```
-Visualize the impact of the variance within the healthy patients :
+###### Visualize the impact of the variance within the healthy patients :
 ```
 -mimema dir/
 ```
 This option will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models)
 Add the path of the directory where you want to save the .svg files
 
-Compute only on the mean.mat files :
+###### Compute only on the mean.mat files :
 ```
 -avg
 ```
 
-Number of SVD components (default = 10) :
+###### Number of SVD components (default = 10) :
 ```
 -svd 350
 ```
 
-Number of TensorDecomposition components (default = 10) :
+###### Number of TensorDecomposition components (default = 10) :
 ```
 -td 350
 ```
 
-Directory of the output of the tensor decomposition :
+###### Directory of the output of the tensor decomposition :
 ```
 -npy directoryOutput/
 ```
