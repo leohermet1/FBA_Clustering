@@ -52,17 +52,15 @@ Compute only on the mean.mat files :
 -avg
 ```
 
-Number of SVD components :
+Number of SVD components (default = 10) :
 ```
 -svd 350
 ```
-(default = 10)
 
-Number of TensorDecomposition components :
+Number of TensorDecomposition components (default = 10) :
 ```
 -td 350
 ```
-(default = 10)
 
 Directory of the output of the tensor decomposition :
 ```
