@@ -27,8 +27,8 @@ or install every dependencies :
 
 + `Statistics and Machine Learning Toolbox`
 
-## Run
-### FIRST METHOD :
+## RUN
+## First method :
 ### Preprocessing :
 ```
 cd fba_CLust
