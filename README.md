@@ -27,15 +27,15 @@ or install every dependencies :
 
 + `Statistics and Machine Learning Toolbox`
 
-#### Run
-### First method :
-## Preprocessing :
+## Run
+### FIRST METHOD :
+#### Preprocessing :
 ```
 cd fba_CLust
 python3 preprocessing1_SVDandTensorDecomposition.py directoryWithMatlabFiles/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored
-# Options :
+##### Options :
 ```
 preprocessing1_SVDandTensorDecomposition.py -h
 preprocessing1_SVDandTensorDecomposition.py -help
