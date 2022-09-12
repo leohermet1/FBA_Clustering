@@ -45,8 +45,11 @@ Visualize the impact of the variance within the healthy patients :
 ```
 -mimema dir/
 ```
-This option will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models)
-Add the path of the directory where you want to save the .svg files
+
+This option will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models).
+
+Add the path of the directory where you want to save the .svg files.
+
 
 Compute only on the mean.mat files :
 ```
@@ -67,7 +70,7 @@ Directory of the output of the tensor decomposition :
 ```
 -npy directoryOutput/
 ```
-Add the path of the directory where you want to save the output of the tensor decomposition
+Add the path of the directory where you want to save the output of the tensor decomposition.
 
 
 Visualization :
