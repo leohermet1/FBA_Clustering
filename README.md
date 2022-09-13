@@ -21,6 +21,7 @@ or install every dependencies :
 + `pip3 install natsort`
 + `pip3 install numpy`
 + `pip3 install scipy`
++ `pip3 install matplotlib`
 + `pip3 install sklearn`
 + `pip3 install pandas`
 + `pip3 install tensorly`
