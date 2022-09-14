@@ -32,12 +32,14 @@ or install every dependencies :
 
 ### Visualize the impact of the variance within the healthy patients :
 First script to run that checks if we need to consider the variability within the control group.
+
 It will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models).
 ```
 cd fba_CLust
 python3 VarianceWithinHealthyPatients.py directoryWithMatlabFiles/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored.
+
 OPTIONS :
 ```
 VarianceWithinHealthyPatients.py -h
