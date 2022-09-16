@@ -106,7 +106,7 @@ VarianceWithinHealthyPatients.py
 ```
 create a folder named reduced_ZeroAndCorr/ and run :
 ```
-python3 preprocessing2_1_Corr.py directoryWithMatlabFiles/ -out reduced_ZeroAndCorr/
+python3 preprocessing2_CorrelationAnalysis.py directoryWithMatlabFiles/ -out reduced_ZeroAndCorr/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored.
 
@@ -114,8 +114,8 @@ This script will delete the reaction fluxes equal to zero at every solution poin
 
 OPTIONS :
 ```
-preprocessing2_Corr.py -h
-preprocessing2_Corr.py --help
+preprocessing2_CorrelationAnalysis.py -h
+preprocessing2_CorrelationAnalysis.py --help
 ```
 
 Compute only on the mean.mat files :
