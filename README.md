@@ -29,7 +29,10 @@ Install every dependencies :
 + `Statistics and Machine Learning Toolbox`
 
 ## RUN
-
+This pipeline is composed of 3 part :
+- Visualize the impact of the variance within the healthy patients (to see if we run the preprocessing part on the 3 models or only on the mean one).
+- Preprocessing (first or second method)
+- Visualization of the results
 ### Visualize the impact of the variance within the healthy patients :
 First script to run that checks if we need to consider the variability within the control group.
 
@@ -236,6 +239,12 @@ This option will save
   - the distribution of the patients between the best permutation of the computed clusters and the metabolic groups
   
   - the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
+
+You can change the metabolic group list line 42 in 
+```
+visualization.py
+```
+
 
 PCA of the reaction fluxes matrix  :
 ```
