@@ -228,13 +228,13 @@ Compare the 4 metabolic groups to 4 computed clusters on the patient matrix :
 ```
 This option will save 
 
-  the PCA on 2 components representing the distribution of the patient matrix with the metabolic groups
+  - the PCA on 2 components representing the distribution of the patient matrix with the metabolic groups
+   
+  - the PCA on 2 components representing the distribution of the patient matrix with the best permutation of the 4 computed clusters
   
-  the PCA on 2 components representing the distribution of the patient matrix with the best permutation of the 4 computed clusters
+  - the distribution of the patients between the best permutation of the computed clusters and the metabolic groups
   
-  the distribution of the patients between the best permutation of the computed clusters and the metabolic groups
-  
-  the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
+  - the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
 
 PCA of the reaction fluxes matrix  :
 ```
