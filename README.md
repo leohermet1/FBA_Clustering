@@ -90,14 +90,15 @@ Add the path of the directory where you want to save the output of the tensor de
 ### SECOND METHOD :
 ### Preprocessing, Correlation analysis :
 First script of the second method.
+
 Once you know which model(s) you need, with 
 ```
 VarianceWithinHealthyPatients.py
 ```
-You can run :
+create a folder named reduced_ZeroAndCorr/ and run :
 ```
 cd fba_CLust
-python3 preprocessing2_1_Corr.py directoryWithMatlabFiles/
+python3 preprocessing2_1_Corr.py directoryWithMatlabFiles/ -out reduced_ZeroAndCorr/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored.
 
@@ -114,24 +115,132 @@ Compute only on the mean.mat files :
 -avg
 ```
 
-Directory of the output of the tensor decomposition :
+Directory of the output of the Correlation analysis :
 ```
--out directoryOutput/
+-out reduced_ZeroAndCorr/
 ```
-Add the path of the directory where you want to save the output of the tensor decomposition.
+Add the path of the directory where you want to save the output of the Correlation analysis.
 
 ### Preprocessing, Euclidean distances :
-Put all the MATLAB files (output of the previous script) in a folder named 'reduced_ZeroAndCorr', create a folder with the name 'reduced_ZeroCorrEuc' (where the outputs needed for the next part (reduced array of solution, euclidean distances of each solutions to the centric point and the coordinates of the centric solution point) will be saved), launch MATLAB and run :
+
+Create a folder with the name 'reduced_ZeroCorrEuc' (where the outputs needed for the next part (reduced array of solution, euclidean distances of each solutions to the centric point and the coordinates of the centric solution point) will be saved), 
+launch MATLAB and run :
 ```
 preprocessing2_EuclideanDistances.m
 ```
 You can also put the path of your folder (previous output) line 1 and 14 (instead of 'reduced_ZeroAndCorr/') and put the path of the folder for each output line 10, 11 and 12.
 
+This script will compute the dense area (around a centric point founded) of the solution point dimension to reduce it.
+
+### Preprocessing, ICA :
+
+Once you have the centric solution, array of solution and euclidean distances (to the centric solution point) for each patients (output of the Euclidean distances script), you can run :
+
+```
+cd fba_CLust
+python3 preprocessing2_ICA.py reduced_ZeroCorrEuc/
+```
+You have to enter the paths of the directory where all the mat files of the patients are stored (centric solution, array of solution and euclidean distances).
+
+This script will sort the solution points of each patient by their Euclidean distance to the centric solution point, crop to the lowest dimension to get a tensor, compute ICA and sort the components (feasible solutions) to the centric solution point found previously.
+
+OPTIONS :
+```
+preprocessing2_ICA.py -h
+preprocessing2_ICA.py --help
+```
+
+Your list of ICA components :
+```
+-comps 50 60 70
+```
+
+Directory of the output of the ICA :
+```
+-out directoryOutput/
+```
+Add the path of the directory where you want to save the tensor(s) with ICA components.
+
 ### Preprocessing, Tensor decomposition :
 
+Once you have the ICA tensor(s), you can run :
+
+```
+cd fba_CLust
+python3 preprocessing2_TensorDecomposition.py directoryWithNumpyFiles/
+```
+
+You have to enter the paths of the directory where all the numpy files of the ICA tensors are stored.
+
+This script will compute a tensor decomposition (td) on the ICA tensors with a number of td components equal to the number of ICA components to have the best percentage of data explained by the model.
+
+OPTIONS :
+```
+preprocessing2_TensorDecomposition.py -h
+preprocessing2_TensorDecomposition.py --help
+```
+
+Directory of the output of the ICA :
+```
+-out directoryOutput/
+```
+Add the path of the directory where you want to save the loss curve and the vectors of the tensor decomposition of each patients as .npy file.
 
 
-Visualization :
+
+
+### Visualization :
+
+Once you have preprocessed the data with the first or second method, you can run :
+
+```
+cd fba_CLust
+python3 visualization.py patientsMatrix/
+```
+
+You have to enter the paths of the patients matrix (from the preprocessing run) as .npy file
+
+This script will help to visualize the output of the tensor decomposition by saving the distribution of the patient matrix on 2 components (PCA) in the current directory.
+
+OPTIONS :
+```
+visualization.py -h
+visualization.py --help
+```
+
+Compute the sse and silouhette curves :
+```
+-sse 
+```
+This option will save the sse and silouhette curves (to find the optimal number of Kmean clusters) in the current directory.
+
+Compute and visualize a number of clusters on the patient matrix :
+```
+-cl 4
+```
+This option will save the PCA on 2 components representing the distribution of the patient matrix with a specific number of clusters in the current directory.
+
+Compare the 4 metabolic groups to 4 computed clusters on the patient matrix :
+```
+-Mgrp
+```
+This option will save 
+  the PCA on 2 components representing the distribution of the patient matrix with the metabolic groups
+  the PCA on 2 components representing the distribution of the patient matrix with the best permutation of the 4 computed clusters
+  the distribution of the patients between the best permutation of the computed clusters and the metabolic groups
+  the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
+
+PCA of the reaction fluxes matrix  :
+```
+-RF
+```
+This option will save the PCA on 2 components representing the distribution of the reaction fluxes matrix in the current directory.
+
+PCA of the solution points matrix  :
+```
+-SP
+```
+This option will save the PCA on 2 components representing the distribution of the solution points matrix in the current directory.
 
 
 
