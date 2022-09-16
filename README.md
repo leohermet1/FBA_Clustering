@@ -33,7 +33,7 @@ This pipeline is composed of 3 part :
 - Visualize the impact of the variance within the healthy patients (to see if we run the preprocessing part on 3 models or only on the mean one).
 - Preprocessing (first or second method)
 - Visualization of the results
-### Visualize the impact of the variance within the healthy patients :
+### VISUALIZE THE IMPACT OF THE VARIANCE WITHIN THE HEALTHY PATIENTS :
 First script to run that checks if we need to consider the variability within the control group.
 
 It will save the distribution of the solution points for each patients as .svg files (search for 3 distinct groups represented by the min, mean and max matrices to see if we need all 3 models).
@@ -196,7 +196,7 @@ Add the path of the directory where you want to save the loss curve and the vect
 
 
 
-### Visualization :
+### VISUALIZATION :
 
 Once you have preprocessed the data with the first or second method, you can run :
 
