@@ -30,7 +30,7 @@ Install every dependencies :
 
 ## RUN
 This pipeline is composed of 3 part :
-- Visualize the impact of the variance within the healthy patients (to see if we run the preprocessing part on the 3 models or only on the mean one).
+- Visualize the impact of the variance within the healthy patients (to see if we run the preprocessing part on 3 models or only on the mean one).
 - Preprocessing (first or second method)
 - Visualization of the results
 ### Visualize the impact of the variance within the healthy patients :
