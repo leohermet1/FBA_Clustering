@@ -218,7 +218,7 @@ This option will save the sse and silouhette curves (to find the optimal number 
 
 Compute and visualize a number of clusters on the patient matrix :
 ```
--cl 4
+-cl 3
 ```
 This option will save the PCA on 2 components representing the distribution of the patient matrix with a specific number of clusters in the current directory.
 
@@ -227,9 +227,13 @@ Compare the 4 metabolic groups to 4 computed clusters on the patient matrix :
 -Mgrp
 ```
 This option will save 
+
   the PCA on 2 components representing the distribution of the patient matrix with the metabolic groups
+  
   the PCA on 2 components representing the distribution of the patient matrix with the best permutation of the 4 computed clusters
+  
   the distribution of the patients between the best permutation of the computed clusters and the metabolic groups
+  
   the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
 
 PCA of the reaction fluxes matrix  :
