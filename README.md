@@ -55,7 +55,7 @@ Path of the output :
 Add the path of the directory where you want to save the .svg files.
 
 ### FIRST METHOD :
-### Preprocessing :
+### Preprocessing1 :
 
 Once you know which model(s) you need, with 
 ```
@@ -97,7 +97,7 @@ Add the path of the directory where you want to save the output of the tensor de
 
 
 ### SECOND METHOD :
-### Preprocessing, Correlation analysis :
+### Preprocessing2, Correlation analysis :
 First script of the second method.
 
 Once you know which model(s) you need, with 
@@ -130,7 +130,7 @@ Directory of the output of the Correlation analysis :
 ```
 Add the path of the directory where you want to save the output of the Correlation analysis.
 
-### Preprocessing, Euclidean distances :
+### Preprocessing2, Euclidean distances :
 
 Create a folder with the name 'reduced_ZeroCorrEuc' (where the outputs needed for the next part (reduced array of solution, euclidean distances of each solutions to the centric point and the coordinates of the centric solution point) will be saved), 
 launch MATLAB and run :
@@ -141,7 +141,7 @@ You can also put the path of your folder (previous output) line 1 and 14 (instea
 
 This script will compute the dense area (around a centric point founded) of the solution point dimension to reduce it.
 
-### Preprocessing, ICA :
+### Preprocessing2, ICA :
 
 Once you have the centric solution, array of solution and euclidean distances (to the centric solution point) for each patients (output of the Euclidean distances script), you can run :
 
@@ -169,7 +169,7 @@ Directory of the output of the ICA :
 ```
 Add the path of the directory where you want to save the tensor(s) with ICA components.
 
-### Preprocessing, Tensor decomposition :
+### Preprocessing2, Tensor decomposition :
 
 Once you have the ICA tensor(s), you can run :
 
