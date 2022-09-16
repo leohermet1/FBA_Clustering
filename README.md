@@ -55,8 +55,14 @@ Add the path of the directory where you want to save the .svg files.
 
 ### FIRST METHOD :
 ### Preprocessing :
+
+Once you know which model(s) you need, with 
 ```
 cd fba_CLust
+VarianceWithinHealthyPatients.py
+```
+You can run,
+```
 python3 preprocessing1_SVDandTensorDecomposition.py directoryWithMatlabFiles/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored.
@@ -95,11 +101,11 @@ First script of the second method.
 
 Once you know which model(s) you need, with 
 ```
+cd fba_CLust
 VarianceWithinHealthyPatients.py
 ```
 create a folder named reduced_ZeroAndCorr/ and run :
 ```
-cd fba_CLust
 python3 preprocessing2_1_Corr.py directoryWithMatlabFiles/ -out reduced_ZeroAndCorr/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored.
@@ -139,7 +145,6 @@ This script will compute the dense area (around a centric point founded) of the 
 Once you have the centric solution, array of solution and euclidean distances (to the centric solution point) for each patients (output of the Euclidean distances script), you can run :
 
 ```
-cd fba_CLust
 python3 preprocessing2_ICA.py reduced_ZeroCorrEuc/
 ```
 You have to enter the paths of the directory where all the mat files of the patients are stored (centric solution, array of solution and euclidean distances).
@@ -168,7 +173,6 @@ Add the path of the directory where you want to save the tensor(s) with ICA comp
 Once you have the ICA tensor(s), you can run :
 
 ```
-cd fba_CLust
 python3 preprocessing2_TensorDecomposition.py directoryWithNumpyFiles/
 ```
 
@@ -196,7 +200,6 @@ Add the path of the directory where you want to save the loss curve and the vect
 Once you have preprocessed the data with the first or second method, you can run :
 
 ```
-cd fba_CLust
 python3 visualization.py patientsMatrix/
 ```
 
