@@ -151,6 +151,7 @@ python3 preprocessing2_ICA.py reduced_ZeroCorrEuc/
 You have to enter the paths of the directory where all the mat files of the patients are stored (centric solution, array of solution and euclidean distances).
 
 This script will sort the solution points of each patient by their Euclidean distance to the centric solution point, crop to the lowest dimension to get a tensor, compute ICA and sort the components (feasible solutions) to the centric solution point found previously.
+It will also save the distribution of the number of patients that did not converge (for different number of components) as svg file.
 
 OPTIONS :
 ```
@@ -167,7 +168,7 @@ Directory of the output of the ICA :
 ```
 -out directoryOutput/
 ```
-Add the path of the directory where you want to save the tensor(s) with ICA components.
+Add the path of the directory where you want to save the tensor(s) with ICA components and the distribution of the number of patients that did not converge (svg file).
 
 ### Preprocessing2, Tensor decomposition :
 
@@ -201,10 +202,10 @@ Add the path of the directory where you want to save the loss curve and the vect
 Once you have preprocessed the data with the first or second method, you can run :
 
 ```
-python3 visualization.py patientsMatrix/
+python3 visualization.py patientsMatrix.npy
 ```
 
-You have to enter the paths of the patients matrix (from the preprocessing run) as .npy file
+You have to enter the paths of the patients matrix (from the preprocessing run) as .npy file OR directory with all the patient matrices if using the option -Identity
 
 This script will help to visualize the output of the tensor decomposition by saving the distribution of the patient matrix on 2 components (PCA) in the current directory.
 
@@ -240,11 +241,10 @@ This option will save
   
   - the distribution of the patients with identical clusters between the best permutation of the computed ones and the metabolic groups in the current directory.
 
-You can change the metabolic group list line 42 in 
+You can change the metabolic group list line 21 in 
 ```
 visualization.py
 ```
-
 
 PCA of the reaction fluxes matrix  :
 ```
@@ -259,6 +259,22 @@ PCA of the solution points matrix  :
 This option will save the PCA on 2 components representing the distribution of the solution points matrix in the current directory.
 
 
+
+Compute the the percentage of identity of multiple patient matrices :
+```
+python3 visualization.py patientMatrices/ -Identity 
+```
+THIS OPTION CAN ONLY BE USED ALONE.
+
+Give the directory with all of the patient matrices as numpy files and add the option '-Identity '.
+
+For each file, it will compute 4 clusters and the percentage of identity compared to the metabolic groups.
+Then it will save the distribution as 'identityMultipleComponents.svg' and print the best percentage of identity with the component(s) corresponding.
+
+You can change the metabolic group list line 21 in 
+```
+visualization.py
+```
 
 ## Author
 Hermet Léo
