@@ -182,6 +182,17 @@ You have to enter the paths of the directory where all the numpy files of the IC
 
 This script will compute a tensor decomposition (td) on the ICA tensors with a number of td components equal to the number of ICA components to have the best percentage of data explained by the model.
 
+! it will compute (by default) only on 50 tensors with 20 to 70 ICA components !
+
+You can change that list line 22 in 
+```
+preprocessing2_TensorDecomposition.py
+```
+If you wanna run tensor decomposition on every numpy files that you have in the directory, simply remove the line 88 (if) and the indentation in
+```
+preprocessing2_TensorDecomposition.py
+```
+
 OPTIONS :
 ```
 preprocessing2_TensorDecomposition.py -h
