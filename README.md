@@ -3,10 +3,7 @@
 ## Description
 Unveiling mechanisms underlying mortality in Shock Induced Endotheliopathy.
 
-This package compute and display the clusters that can be found between multiple patients matrices obtained by FBA (reaction-solution matrices).
-
-## Version
-1.0.0
+This pipeline compute and display the clusters that can be found between multiple patients matrices obtained by FBA (reaction-solution matrices).
 
 ## Installation
 Before trying to run this software 
